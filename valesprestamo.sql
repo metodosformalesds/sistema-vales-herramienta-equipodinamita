@@ -60,17 +60,17 @@ CREATE TABLE IF NOT EXISTS `valeherramienta` (
   `HoraEntrada` time DEFAULT NULL,
   `HoraSalida` time DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `NombreDocente` varchar(50) DEFAULT NULL,
-  `Clase` varchar(50) DEFAULT NULL,
-  `NomPrac` varchar(50) DEFAULT NULL,
-  `idHerramienta` int(11) DEFAULT NULL,
-  `NumLab` varchar(50) DEFAULT NULL,
-  `Observaciones` text,
-  `MatriculaEntrega` int(11) DEFAULT NULL,
+  `NombreDocente` varchar(50) DEFAULT 'NA',
+  `Clase` varchar(50) DEFAULT 'NA',
+  `NomPrac` varchar(50) DEFAULT 'NA',
+  `idHerramienta` int(11) DEFAULT '0',
+  `NumLab` varchar(50) DEFAULT 'NA',
+  `Observaciones` tinytext,
+  `MatriculaEntrega` int(11) DEFAULT '0',
   `MatriculaRecibe` int(11) DEFAULT '0',
-  `Estatus` varchar(50) DEFAULT NULL,
-  `NombreSolicitante` varchar(50) DEFAULT NULL,
-  `MatriculaSolicitante` int(11) DEFAULT NULL,
+  `Estatus` varchar(50) DEFAULT 'NA',
+  `NombreSolicitante` varchar(50) DEFAULT 'NA',
+  `MatriculaSolicitante` int(11) DEFAULT '0',
   KEY `FK_valeherramienta_herramientas` (`idHerramienta`),
   CONSTRAINT `FK_valeherramienta_herramientas` FOREIGN KEY (`idHerramienta`) REFERENCES `herramientas` (`numInventario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -81,11 +81,10 @@ INSERT INTO `valeherramienta` (`Folio`, `HoraEntrada`, `HoraSalida`, `Fecha`, `N
 	(1, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Ponce', 'Electronica', 'Sensores', 8, 'D1-105', 'NA', 169818, 0, 'Activo', 'Gustavo Cerna', 169837),
 	(1, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Ponce', 'Electronica', 'Sensores', 5, 'D1-105', 'NA', 169818, 0, 'Finalizado', 'Gustavo Cerna', 169837),
 	(1, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Ponce', 'Electronica', 'Sensores', 1, 'D1-105', 'NA', 169818, 0, 'Activo', 'Gustavo Cerna', 169837),
-	(2, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Fuentes', 'Circuitos III', 'Circuitos Unidos', 1, 'D1-107', 'NA', 169837, 0, 'Finalizado', 'Leandro Carrijo', 169822),
-	(2, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Fuentes', 'Circuitos III', 'Circuitos Unidos', 4, 'D1-107', 'NA', 169837, 0, 'Finalizado', 'Leandro Carrijo', 169822),
-	(2, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Fuentes', 'Circuitos III', 'Circuitos Unidos', 6, 'D1-107', 'NA', 169837, 0, 'Finalizado', 'Leandro Carrijo', 169822),
-	(2, '19:57:07', '00:00:00', '2019-11-22', 'Carlos Fuentes', 'Circuitos III', 'Circuitos Unidos', 5, 'D1-107', 'NA', 169837, 0, 'Finalizado', 'Leandro Carrijo', 169822),
-	(3, '11:52:38', '00:00:00', '2019-11-23', 'Alan Ponce', 'Programacion II', 'Herencia', 3, 'D2-105', 'NA', 169837, 0, 'Activo', 'Edgar Reyes', 169818);
+	(3, '11:52:38', '13:22:54', '2019-11-23', 'Alan Ponce', 'Programacion II', 'Herencia', 3, 'D2-105', 'NA', 169837, 169837, 'Finalizado', 'Edgar Reyes', 169818),
+	(4, '14:17:52', '14:20:03', '2019-11-25', 'Juan Martinez', 'Electronica III', 'Circuitos', 4, 'D1-107', '', 169837, 169837, 'Finalizado', 'Edgar Reyes', 169818),
+	(4, '14:17:52', '14:20:03', '2019-11-25', 'Juan Martinez', 'Electronica III', 'Circuitos', 1, 'D1-107', '', 169837, 169837, 'Finalizado', 'Edgar Reyes', 169818),
+	(2, '14:21:21', '14:22:10', '2019-11-25', 'AAA', 'AAA', 'AAA', 3, 'Seleccione Laboratorio', 'AAA', 169837, 169837, 'Finalizado', 'AAA', 169818);
 /*!40000 ALTER TABLE `valeherramienta` ENABLE KEYS */;
 
 -- Volcando estructura para tabla valesprestamo.valemaquinaria
@@ -94,15 +93,15 @@ CREATE TABLE IF NOT EXISTS `valemaquinaria` (
   `HoraEntrada` time DEFAULT NULL,
   `HoraSalida` time DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
-  `NombreDocente` varchar(50) DEFAULT NULL,
-  `condicionInicial` varchar(50) DEFAULT NULL,
-  `condicionFinal` varchar(50) DEFAULT NULL,
-  `NombreSolicitante` varchar(50) DEFAULT NULL,
+  `NombreDocente` varchar(50) DEFAULT 'NA',
+  `condicionInicial` varchar(50) DEFAULT 'NA',
+  `condicionFinal` varchar(50) DEFAULT 'NA',
+  `NombreSolicitante` varchar(50) DEFAULT 'NA',
   `MatriculaSolicitante` int(11) DEFAULT '0',
   `MatriculaEntrega` int(11) DEFAULT '0',
   `MatriculaRecibe` int(11) DEFAULT '0',
   `idSerie` int(11) DEFAULT '0',
-  `Estatus` varchar(50) DEFAULT NULL
+  `Estatus` varchar(50) DEFAULT 'NA'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla valesprestamo.valemaquinaria: ~1 rows (aproximadamente)
